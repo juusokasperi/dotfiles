@@ -6,15 +6,12 @@ cat > ~/.du_check.sh << 'EOF'
 CLR="\033[1;93;49m"
 RST="\033[0m"
 USER=$(whoami)
-HOME_USAGE=$(du -sh $HOME 2>/dev/null | cut -f1)
 WORK_USAGE=$(du -sh /var/work/$USER 2>/dev/null | cut -f1)
 DATE="[$(date '+%Y-%m-%d')]"
 
-HOME_MSG="Home: $CLR$HOME_USAGE$RST"
 WORK_MSG="Work: $CLR$WORK_USAGE$RST"
 
 echo -e "$CLR# DISK USAGE $DATE$RST" > ~/.disk_report
-echo -e "$HOME_MSG" >> ~/.disk_report
 echo -e "$WORK_MSG" >> ~/.disk_report
 EOF
 chmod +x ~/.du_check.sh

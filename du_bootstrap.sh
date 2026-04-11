@@ -3,7 +3,7 @@
 echo "Creating disk usage shell script.." 
 cat > ~/.du_check.sh << 'EOF'
 #!/bin/bash
-CLR="\033[1;93;49m"
+CLR="\033[0;30;42m"
 RST="\033[0m"
 USER=$(whoami)
 WORK_USAGE=$(du -sh /var/work/$USER 2>/dev/null | cut -f1)
